@@ -14,10 +14,10 @@ public class NoteService {
 
     private long idCounter = 1;
 
-    public List<String> listAll() {
-        List<String> allNotesAsString = new ArrayList<>();
+    public List<Note> listAll() {
+        List<Note> allNotesAsString = new ArrayList<>();
         for (Note note : noteMap.values()) {
-            allNotesAsString.add(note.toString());
+            allNotesAsString.add(note);
         }
         return allNotesAsString;
     }

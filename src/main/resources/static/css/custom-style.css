@@ -1,0 +1,45 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #007bff;
+}
+
+.table {
+    width: 100%;
+}
+
+.table th {
+    text-align: center;
+}
+
+.table tbody tr {
+    text-align: center;
+}
+
+.btn {
+    margin-right: 5px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    background-color: #ffeeba;
+}
