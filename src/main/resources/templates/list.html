@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/custom-style.css"> <!-- Додайте свій власний CSS файл -->
+    <link rel="stylesheet" href="/css/custom-style.css">
     <title>Notes List</title>
 </head>
 <body>
 <div class="container mt-4">
     <h2 class="mb-4 text-center">Notes List</h2>
+
+    <div class="mb-3 text-center">
+        <a class="btn btn-success" th:href="@{/note/create}">Create New Note</a>
+    </div>
 
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -29,6 +33,18 @@
                 <a class="btn btn-info btn-sm" th:href="@{/note/edit(id=${note.id})}">Edit</a>
                 <form method="post" th:action="@{/note/delete}" style="display:inline;">
                     <input type="hidden" name="id" th:value="${note.id}" />
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <tr th:if="${addedNote}">
+            <td th:text="${addedNote.id}"></td>
+            <td th:text="${addedNote.title}"></td>
+            <td th:text="${addedNote.content}"></td>
+            <td>
+                <a class="btn btn-info btn-sm" th:href="@{/note/edit(id=${addedNote.id})}">Edit</a>
+                <form method="post" th:action="@{/note/delete}" style="display:inline;">
+                    <input type="hidden" name="id" th:value="${addedNote.id}" />
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                 </form>
             </td>

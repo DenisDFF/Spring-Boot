@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom-style.css">
+    <title>Create New Note</title>
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Create New Note</h2>
+
+    <form th:object="${note}" method="post" th:action="@{/note/create}">
+        <input type="hidden" th:field="*{id}" />
+        <label>Title: <input type="text" th:field="*{title}" /></label><br />
+        <label>Content: <textarea th:field="*{content}"></textarea></label><br />
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+    <div class="mt-3">
+        <a class="btn btn-secondary" th:href="@{/note/list}">Back to Notes List</a>
+    </div>
+</div>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.example.TS;
 
+import org.aspectj.weaver.ast.Not;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,15 +22,6 @@ public class NoteController {
 
     @RequestMapping("/list")
     public String listNotes(Model model) {
-
-        //test note
-
-        note.setTitle("Note1");
-        note.setContent("cook the chicken");
-        Note addedNote1 = noteService.add(note);
-
-        //test
-
         List<Note> notes = noteService.listAll();
         model.addAttribute("notes", notes);
         return "list";
@@ -44,7 +36,7 @@ public class NoteController {
     @GetMapping("/edit")
     public String editNotePage(@RequestParam long id, Model model) {
         Note note1 = noteService.getById(id);
-        model.addAttribute("note", note);
+        model.addAttribute("note", note1);
         return "edit";
     }
 
@@ -52,5 +44,21 @@ public class NoteController {
     public RedirectView editNotes(@ModelAttribute Note updatedNote) {
         noteService.update(updatedNote);
         return new RedirectView("/note/list");
+    }
+
+    @RequestMapping("/create")
+    public String createNote(Model model) {
+        model.addAttribute("note", new Note());
+        return "create";
+    }
+
+    @PostMapping("/create")
+    public String createNoteSubmit(@ModelAttribute Note note, Model model) {
+        if (note != null && note.getTitle() != null) {
+            Note addedNote = noteService.add(note);
+            model.addAttribute("addedNote", addedNote);
+            return "redirect:/note/list";
+        }
+        return "redirect:/note/create";
     }
 }
