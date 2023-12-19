@@ -1,4 +1,4 @@
-package com.example.TS;
+package com.example.TS.Enity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

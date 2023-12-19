@@ -1,9 +1,10 @@
-package com.example.TS;
+package com.example.TS.Service;
 
+import com.example.TS.Enity.Note;
+import com.example.TS.Repository.NoteRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
